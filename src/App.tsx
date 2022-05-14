@@ -34,16 +34,30 @@ function App() {
 
   /* Percent key */
   function percentKey(e: string) {
-    const percentString = showDisplay
-      .replace("×", "*")
-      .replace("÷", "/")
-      .replace("+", "+")
-      .replace("-", "-");
+    const percentString = showDisplay.replace("×", "*").replace("÷", "/");
+    const operador = percentString.replace(/[0-9]/g, "").trim();
 
-    const newValue = `${percentString}${"/100"}`;
+    const splitOperation = percentString.split(operador);
 
-    setOperator("result");
-    return Function(`'use strict'; return (${newValue})`)();
+    //console.log("Operation: " + splitOperation);
+    const firstValue = parseFloat(splitOperation[0]);
+    const secondValue = parseFloat(splitOperation[1]);
+
+    if (operador === "+") {
+      const sumPercent = firstValue + firstValue * (secondValue / 100);
+      return String(sumPercent);
+    }
+
+    if (operador === "-") {
+      const minusPercent = firstValue - firstValue * (secondValue / 100);
+      return String(minusPercent);
+    }
+
+    if (operador === "/") {
+      const dividePercent =
+        firstValue / (firstValue / (firstValue / (secondValue / 100)));
+      return String(dividePercent);
+    }
   }
 
   /* Calculates the result */
@@ -126,7 +140,6 @@ function App() {
           value={String(showDisplay).slice(0, 10)}
           disabled
         />
-
         <div className="keys">
           {/* First key row */}
           <input type="button" value="AC" onClick={() => clearDisplay()} />
@@ -141,7 +154,6 @@ function App() {
             type="button"
             value="%"
             onClick={() => setShowDisplay(percentKey(showDisplay))}
-            disabled
           />
 
           {/* Second key row */}
