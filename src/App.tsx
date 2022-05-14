@@ -55,8 +55,8 @@ function App() {
       } else if (operatorSymbol === "*") {
         resultPercent = firstValue * (secondValue / 100);
       }
-      return String(resultPercent);
       setOperator("result");
+      return String(resultPercent);
     } else {
       return "0";
     }
