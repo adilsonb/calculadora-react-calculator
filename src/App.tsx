@@ -35,7 +35,7 @@ function App() {
   /* Percent key */
   function percentKey(e: string) {
     if (showDisplay != "0") {
-      const percentString = showDisplay.replace("×", "*").replace("÷", "/");
+      const percentString = e.replace("×", "*").replace("÷", "/");
       const operatorSymbol = percentString.replace(/[0-9]/g, "").trim();
 
       const splitOperation = percentString.split(operatorSymbol);
@@ -43,21 +43,19 @@ function App() {
       const firstValue = parseFloat(splitOperation[0]);
       const secondValue = parseFloat(splitOperation[1]);
 
-      if (operatorSymbol === "+") {
-        const sumPercent = firstValue + firstValue * (secondValue / 100);
-        return String(sumPercent);
-      } else if (operatorSymbol === "-") {
-        const minusPercent = firstValue - firstValue * (secondValue / 100);
-        return String(minusPercent);
-      } else if (operatorSymbol === "/") {
-        const dividePercent =
-          firstValue / (firstValue / (firstValue / (secondValue / 100)));
-        return String(dividePercent);
-      } else if (operatorSymbol === "*") {
-        const multiplyPercent = firstValue * (secondValue / 100);
-        return String(multiplyPercent);
-      }
+      let resultPercent;
 
+      if (operatorSymbol === "+") {
+        resultPercent = firstValue + firstValue * (secondValue / 100);
+      } else if (operatorSymbol === "-") {
+        resultPercent = firstValue - firstValue * (secondValue / 100);
+      } else if (operatorSymbol === "/") {
+        resultPercent =
+          firstValue / (firstValue / (firstValue / (secondValue / 100)));
+      } else if (operatorSymbol === "*") {
+        resultPercent = firstValue * (secondValue / 100);
+      }
+      return String(resultPercent);
       setOperator("result");
     } else {
       return "0";
