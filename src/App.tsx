@@ -35,25 +35,24 @@ function App() {
   /* Percent key */
   function percentKey(e: string) {
     const percentString = showDisplay.replace("×", "*").replace("÷", "/");
-    const operador = percentString.replace(/[0-9]/g, "").trim();
+    const operatorSymbol = percentString.replace(/[0-9]/g, "").trim();
 
-    const splitOperation = percentString.split(operador);
+    const splitOperation = percentString.split(operatorSymbol);
 
-    //console.log("Operation: " + splitOperation);
     const firstValue = parseFloat(splitOperation[0]);
     const secondValue = parseFloat(splitOperation[1]);
 
-    if (operador === "+") {
+    if (operatorSymbol === "+") {
       const sumPercent = firstValue + firstValue * (secondValue / 100);
       return String(sumPercent);
     }
 
-    if (operador === "-") {
+    if (operatorSymbol === "-") {
       const minusPercent = firstValue - firstValue * (secondValue / 100);
       return String(minusPercent);
     }
 
-    if (operador === "/") {
+    if (operatorSymbol === "/") {
       const dividePercent =
         firstValue / (firstValue / (firstValue / (secondValue / 100)));
       return String(dividePercent);
