@@ -36,10 +36,15 @@ function App() {
   function percentKey(e: string) {
     if (showDisplay != "0") {
       const percentString = e.replace("×", "*").replace("÷", "/");
-      const operatorSymbol = percentString.replace(/[0-9]/g, "").trim();
+      let operatorSymbol = percentString.replace(/[0-9]/g, "").trim();
+
+      if (operatorSymbol.length > 1) {
+        operatorSymbol = operatorSymbol.charAt(1);
+      } else {
+        operatorSymbol = operatorSymbol.charAt(0);
+      }
 
       const splitOperation = percentString.split(operatorSymbol);
-
       const firstValue = parseFloat(splitOperation[0]);
       const secondValue = parseFloat(splitOperation[1]);
 
