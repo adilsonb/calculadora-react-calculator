@@ -4,10 +4,11 @@
 <p>De maneira gradual, evoluindo com o aprendizado, irei otimizando, aperfeiçoando o código fonte e corrigindo os bugs.</p>
 <p>Sugestões serão sempre  bem-vindas!</p>
 
+<i>
 <p>Calculator developed with the objective of putting into practice the knowledge and learning in React JS.</p>
 <p>Gradually, evolving as I learn, I will optimize, improve the source code, and fix bugs.</p>
 <p>Suggestions are always welcome!</>
-
+</i>
 
 
 
