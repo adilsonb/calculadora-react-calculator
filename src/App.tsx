@@ -6,7 +6,7 @@ function App() {
   const [operator, setOperator] = useState("");
   const [theme, setTheme] = useState("");
 
-  const regexZeroPoint = /^(?:[0]\.)/;
+  const regexZeroPoint = /^[0]\./;
   const regexZeroStart = /^[0]/;
   const regexNumber = /^\d+$/;
   const regexOperators = /(^[+\-/×÷%]+)/;
@@ -78,19 +78,19 @@ function App() {
     }
   }
 
-  /* Read Keypress or click in buttom */
+  /* Read Keypress or click in button */
   function readKeyOrClick(key: any) {
     if (operator === "result" && regexOperators.test(key) && lastChar != key) {
       setOperator("");
       return setShowDisplay(`${showDisplay}${key}`);
     } else if (operator === "result" && regexNumber.test(showDisplay)) {
       setOperator("");
-      return setShowDisplay(`${""}${key}`);
+      return setShowDisplay(key);
     } else if (
       regexZeroStart.test(showDisplay) &&
       !regexZeroPoint.test(showDisplay)
     ) {
-      return setShowDisplay(`${""}${key}`);
+      return setShowDisplay(key);
     } else if (regexOperators.test(key) && lastChar === key) {
       return setShowDisplay(`${showDisplay}`);
     } else if (regexOperators.test(key) && regexOperators.test(lastChar)) {
