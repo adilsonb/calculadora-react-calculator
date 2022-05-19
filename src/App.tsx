@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Draggable from "react-draggable";
 import "./App.css";
 
 function App() {
@@ -140,59 +141,61 @@ function App() {
 
   return (
     <div className="App">
-      <div className="calculator">
-        <input
-          type="text"
-          className="display"
-          value={String(showDisplay).slice(0, 10)}
-          disabled
-        />
-        <div className="keys">
-          {/* First key row */}
-          <input type="button" value="AC" onClick={() => clearDisplay()} />
+      <Draggable>
+        <div className="calculator">
           <input
-            type="button"
-            className="light"
-            value="&#9728;"
-            onClick={() => lightMode()}
+            type="text"
+            className="display"
+            value={String(showDisplay).slice(0, 10)}
+            disabled
           />
-          <input type="button" value="±" onClick={() => toggleValue()} />
-          <input
-            type="button"
-            value="%"
-            onClick={() => setShowDisplay(percentKey(showDisplay))}
-          />
+          <div className="keys">
+            {/* First key row */}
+            <input type="button" value="AC" onClick={() => clearDisplay()} />
+            <input
+              type="button"
+              className="light"
+              value="&#9728;"
+              onClick={() => lightMode()}
+            />
+            <input type="button" value="±" onClick={() => toggleValue()} />
+            <input
+              type="button"
+              value="%"
+              onClick={() => setShowDisplay(percentKey(showDisplay))}
+            />
 
-          {/* Second key row */}
-          <input type="button" value="7" onClick={() => calculatorKey("7")} />
-          <input type="button" value="8" onClick={() => calculatorKey("8")} />
-          <input type="button" value="9" onClick={() => calculatorKey("9")} />
-          <input type="button" value="÷" onClick={() => calculatorKey("÷")} />
+            {/* Second key row */}
+            <input type="button" value="7" onClick={() => calculatorKey("7")} />
+            <input type="button" value="8" onClick={() => calculatorKey("8")} />
+            <input type="button" value="9" onClick={() => calculatorKey("9")} />
+            <input type="button" value="÷" onClick={() => calculatorKey("÷")} />
 
-          {/* Third key row */}
-          <input type="button" value="4" onClick={() => calculatorKey("4")} />
-          <input type="button" value="5" onClick={() => calculatorKey("5")} />
-          <input type="button" value="6" onClick={() => calculatorKey("6")} />
-          <input type="button" value="×" onClick={() => calculatorKey("×")} />
+            {/* Third key row */}
+            <input type="button" value="4" onClick={() => calculatorKey("4")} />
+            <input type="button" value="5" onClick={() => calculatorKey("5")} />
+            <input type="button" value="6" onClick={() => calculatorKey("6")} />
+            <input type="button" value="×" onClick={() => calculatorKey("×")} />
 
-          {/* Fourth key row */}
-          <input type="button" value="1" onClick={() => calculatorKey("1")} />
-          <input type="button" value="2" onClick={() => calculatorKey("2")} />
-          <input type="button" value="3" onClick={() => calculatorKey("3")} />
-          <input type="button" value="-" onClick={() => calculatorKey("-")} />
+            {/* Fourth key row */}
+            <input type="button" value="1" onClick={() => calculatorKey("1")} />
+            <input type="button" value="2" onClick={() => calculatorKey("2")} />
+            <input type="button" value="3" onClick={() => calculatorKey("3")} />
+            <input type="button" value="-" onClick={() => calculatorKey("-")} />
 
-          {/* Fifth key row */}
-          <input type="button" value="0" onClick={() => calculatorKey("0")} />
-          <input type="button" value="." onClick={() => calculatorKey(".")} />
-          <input
-            type="button"
-            value="="
-            className="equal"
-            onClick={() => setShowDisplay(calcParse(showDisplay))}
-          />
-          <input type="button" value="+" onClick={() => calculatorKey("+")} />
+            {/* Fifth key row */}
+            <input type="button" value="0" onClick={() => calculatorKey("0")} />
+            <input type="button" value="." onClick={() => calculatorKey(".")} />
+            <input
+              type="button"
+              value="="
+              className="equal"
+              onClick={() => setShowDisplay(calcParse(showDisplay))}
+            />
+            <input type="button" value="+" onClick={() => calculatorKey("+")} />
+          </div>
         </div>
-      </div>
+      </Draggable>
     </div>
   );
 }
