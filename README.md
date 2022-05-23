@@ -9,7 +9,7 @@ Sugestões serão sempre bem-vindas!
 Últimas Atualizações:  
 18/05/2022 - Adicionada a opção de mover livremente a calculadora de lugar.
 
-### Demo: https://adivision.com.br/projetos/react/calculadora/  
+### Demo: https://pc97ry.sse.codesandbox.io/
 
 ![simple-react-calculator](https://user-images.githubusercontent.com/7112562/168508940-ca0e9865-0bd9-420f-95a4-9b2a7ee99380.png)
 
